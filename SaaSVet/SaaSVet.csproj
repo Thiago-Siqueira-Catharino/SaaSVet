@@ -12,7 +12,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Contexts\" />
+      <Folder Include="Contexts\Auth\Application\" />
+      <Folder Include="Contexts\Auth\Domain\Entities\" />
+      <Folder Include="Contexts\Auth\Domain\IRepositories\" />
+      <Folder Include="Contexts\Auth\Infrastructure\" />
+      <Folder Include="Contexts\Auth\Presentation\" />
     </ItemGroup>
 
 </Project>
