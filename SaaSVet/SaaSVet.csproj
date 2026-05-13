@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.27" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.27" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.26"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
     </ItemGroup>
@@ -15,7 +16,6 @@
     <ItemGroup>
       <Folder Include="Contexts\Auth\Application\" />
       <Folder Include="Contexts\Auth\Domain\IRepositories\" />
-      <Folder Include="Contexts\Auth\Infrastructure\" />
       <Folder Include="Contexts\Auth\Presentation\" />
     </ItemGroup>
 
