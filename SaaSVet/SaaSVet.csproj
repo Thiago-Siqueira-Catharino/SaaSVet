@@ -14,7 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Contexts\Auth\Application\" />
       <Folder Include="Contexts\Auth\Domain\IRepositories\" />
     </ItemGroup>
 
