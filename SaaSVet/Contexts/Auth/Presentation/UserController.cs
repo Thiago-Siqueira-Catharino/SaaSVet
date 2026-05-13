@@ -9,6 +9,14 @@ public class UserController() : ControllerBase
     [HttpGet("/ping")]
     public IActionResult GetPing()
     {
-        return Ok("pong");
+        int num = new Random().Next(0, 2);
+
+        if (num == 0)
+        {
+            Console.WriteLine(num);
+            return Ok("pong");
+        }
+        
+        return Ok("go drinking (vai tomando)");
     }
 }
