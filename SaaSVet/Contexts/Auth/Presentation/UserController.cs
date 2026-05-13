@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SaaSVet.Contexts.Auth.Application;
+using SaaSVet.Contexts.Auth.Application.Dtos;
 
 namespace SaaSVet.Contexts.Auth.Presentation;
 
 [ApiController]
-[Route("api/[controller]")]
-public class UserController() : ControllerBase
+[Route("auth")]
+public class UserController(NovoUsuarioUseCase _novoUsuario) : ControllerBase
 {
     [HttpGet("/ping")]
     public IActionResult GetPing()
@@ -18,5 +20,12 @@ public class UserController() : ControllerBase
         }
         
         return Ok("go drinking (vai tomando)");
+    }
+
+    [HttpPost("/cadastrar")]
+    public async Task<IActionResult> Cadastrar(NovoUsuarioDto novoUsuario)
+    {
+        await _novoUsuario.Run(novoUsuario);
+        return Ok();
     }
 }
