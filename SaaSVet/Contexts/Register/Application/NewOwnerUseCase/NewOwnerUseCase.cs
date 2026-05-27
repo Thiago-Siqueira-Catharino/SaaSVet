@@ -1,7 +1,7 @@
-﻿using SaaSVet.Contexts.Appointments.Domain.Entities;
-using SaaSVet.Contexts.Appointments.Domain.IRepositories;
+﻿using SaaSVet.Contexts.Register.Domain.Entities;
+using SaaSVet.Contexts.Register.Domain.IRepositories;
 
-namespace SaaSVet.Contexts.Appointments.Application.NewOwnerUseCase;
+namespace SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 
 public class NewOwnerUseCase
 {

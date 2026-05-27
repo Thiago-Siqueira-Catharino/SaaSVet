@@ -1,4 +1,4 @@
-﻿namespace SaaSVet.Contexts.Appointments.Application.NewOwnerUseCase;
+﻿namespace SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 
 public record NewOwnerDto
 {
