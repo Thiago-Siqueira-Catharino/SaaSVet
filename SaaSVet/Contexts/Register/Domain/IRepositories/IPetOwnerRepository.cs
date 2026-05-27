@@ -1,6 +1,6 @@
-﻿using SaaSVet.Contexts.Appointments.Domain.Entities;
+﻿using SaaSVet.Contexts.Register.Domain.Entities;
 
-namespace SaaSVet.Contexts.Appointments.Domain.IRepositories;
+namespace SaaSVet.Contexts.Register.Domain.IRepositories;
 
 public interface IPetOwnerRepository
 {
