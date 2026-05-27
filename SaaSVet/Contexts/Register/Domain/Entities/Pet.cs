@@ -1,4 +1,4 @@
-﻿namespace SaaSVet.Contexts.Appointments.Domain.Entities;
+﻿namespace SaaSVet.Contexts.Register.Domain.Entities;
 
 public class Pet
 {
