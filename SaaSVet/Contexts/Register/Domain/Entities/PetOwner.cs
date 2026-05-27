@@ -1,17 +1,19 @@
-﻿namespace SaaSVet.Contexts.Appointments.Domain.Entities;
+﻿namespace SaaSVet.Contexts.Register.Domain.Entities;
 
 public class PetOwner
 {
+    public int id { get; private set; }
     public string name { get; set; }
     public List<Pet> pets { get; set; }
 
     public PetOwner()
     { }
 
-    public PetOwner(string name)
+    public PetOwner(int id, string name)
     {
+        this.id = id;
         this.name = name;
-        this.pets = [];
+        pets = [];
     }
 
     public void AddPet(Pet pet)

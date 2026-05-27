@@ -1,4 +1,4 @@
-﻿namespace SaaSVet.Contexts.Appointments.Application.NewPetUseCase;
+﻿namespace SaaSVet.Contexts.Register.Application.NewPetUseCase;
 
 public record NewPetDto
 {
