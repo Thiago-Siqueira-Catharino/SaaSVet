@@ -6,11 +6,9 @@ namespace SaaSVet.Contexts.Appointments.Infrastructure.Persistance;
 public class AppointmentsDbContext : DbContext
 {
     public DbSet<Pet> Pets { get; set; }
-    public DbSet<Clinic> Clinics { get; set; }
     public DbSet<PetOwner> PetOwners { get; set; }
-    public DbSet<Appointment> Appointments { get; set; }
 
-    public AppointmentsDbContext(DbContextOptions options) : base(options)
+    public AppointmentsDbContext(DbContextOptions<AppointmentsDbContext> options) : base(options)
     {
     }
 
@@ -19,13 +17,7 @@ public class AppointmentsDbContext : DbContext
         modelBuilder.Entity<Pet>()
             .HasOne(p => p.owner)
             .WithMany(o => o.pets);
-        
-        modelBuilder.Entity<Appointment>()
-            .HasOne(a => a.pet)
-            .WithMany(p => p.appointments);
 
-        modelBuilder.Entity<Appointment>()
-            .HasOne(a => a.clinic)
-            .WithMany(c => c.appointments);
+        modelBuilder.Entity<PetOwner>();
     }
 }

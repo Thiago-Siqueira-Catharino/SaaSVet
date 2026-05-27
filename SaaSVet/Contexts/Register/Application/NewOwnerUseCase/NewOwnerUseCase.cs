@@ -1,4 +1,5 @@
-﻿using SaaSVet.Contexts.Appointments.Domain.IRepositories;
+﻿using SaaSVet.Contexts.Appointments.Domain.Entities;
+using SaaSVet.Contexts.Appointments.Domain.IRepositories;
 
 namespace SaaSVet.Contexts.Appointments.Application.NewOwnerUseCase;
 
@@ -13,6 +14,7 @@ public class NewOwnerUseCase
 
     public async Task RunAsync(NewOwnerDto newOwnerDto)
     {
-        PetOwner
+        PetOwner newOwner = new PetOwner(newOwnerDto.id, newOwnerDto.name);
+        await _petOwnerRepository.AddAsync(newOwner);
     }
 }
