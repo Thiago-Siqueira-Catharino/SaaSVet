@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SaaSVet.Contexts.Appointments.Domain.Entities;
+using SaaSVet.Contexts.Register.Domain.Entities;
 
-namespace SaaSVet.Contexts.Appointments.Infrastructure.Persistance;
+namespace SaaSVet.Contexts.Register.Infrastructure.Persistance;
 
 public class AppointmentsDbContext : DbContext
 {
