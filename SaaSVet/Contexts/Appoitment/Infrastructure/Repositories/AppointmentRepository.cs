@@ -39,6 +39,14 @@ public class AppointmentRepository : IAppointmentRepository
         return await _appointmentDbContext.Appoitments.FirstOrDefaultAsync(a => a.Id == id);
     }
 
+    public async Task<bool> HasFutureAppointmentAsync(int petId)
+    {
+        return await _appointmentDbContext.Appoitments.AnyAsync(p => 
+            p.PetId == petId && 
+            p.Date >= DateTime.Now);
+
+    }
+
     public async Task<List<Appointment>> GetByPetIdAsync(int petId)
     {
         return  await _appointmentDbContext.Appoitments

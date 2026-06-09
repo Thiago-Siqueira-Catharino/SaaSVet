@@ -19,8 +19,19 @@ public class PetRepository : IPetRepository
         await _database.SaveChangesAsync();
     }
 
+    public async Task<Pet> FindByIdAsync(int petId)
+    {
+        return await _database.Pets.FirstOrDefaultAsync(p => p.Id == petId);
+    }
+
+    public async Task SaveAsync(Pet petToUpdate)
+    {
+        _database.Pets.Update(petToUpdate);
+        await _database.SaveChangesAsync();
+    }
+
     public async Task<List<Pet>> GetByOwnerIdAsync(int ownerId)
     {
-        return await _database.Pets.Where(p => p.owner.id == ownerId).ToListAsync();
+        return await _database.Pets.Where(p => p.owner.id == ownerId && p.IsDeleted == false).ToListAsync();
     }
 }
