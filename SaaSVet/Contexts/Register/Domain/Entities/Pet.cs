@@ -1,8 +1,9 @@
-﻿namespace SaaSVet.Contexts.Register.Domain.Entities;
+﻿using SaaSVet.Common.Entities;
 
-public class Pet
+namespace SaaSVet.Contexts.Register.Domain.Entities;
+
+public class Pet : EntityBase
 {
-    public int id { get; set; }
     public PetOwner owner { get; private set; }
     public string name { get; private set; }
 
