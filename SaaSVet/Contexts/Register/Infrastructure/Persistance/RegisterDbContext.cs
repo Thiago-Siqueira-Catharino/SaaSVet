@@ -3,12 +3,12 @@ using SaaSVet.Contexts.Register.Domain.Entities;
 
 namespace SaaSVet.Contexts.Register.Infrastructure.Persistance;
 
-public class AppointmentsDbContext : DbContext
+public class RegisterDbContext : DbContext
 {
     public DbSet<Pet> Pets { get; set; }
     public DbSet<PetOwner> PetOwners { get; set; }
 
-    public AppointmentsDbContext(DbContextOptions<AppointmentsDbContext> options) : base(options)
+    public RegisterDbContext(DbContextOptions<RegisterDbContext> options) : base(options)
     {
     }
 

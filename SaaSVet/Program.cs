@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
                        ?? "server=localhost;database=saasvet;user=root;password=";
 
-builder.Services.AddDbContext<AppointmentsDbContext>(options =>
+builder.Services.AddDbContext<RegisterDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllers();

@@ -6,8 +6,8 @@ namespace SaaSVet.Contexts.Register.Infrastructure.Repositories;
 
 public class PetRepository : IPetRepository
 {
-    public readonly AppointmentsDbContext _database;
-    public PetRepository(AppointmentsDbContext database)
+    public readonly RegisterDbContext _database;
+    public PetRepository(RegisterDbContext database)
     {
         _database = database;
     }

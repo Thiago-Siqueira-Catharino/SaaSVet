@@ -6,8 +6,8 @@ namespace SaaSVet.Contexts.Register.Infrastructure.Repositories;
 
 public class OwnerRepository : IPetOwnerRepository
 {
-    private readonly AppointmentsDbContext _database;
-    public OwnerRepository(AppointmentsDbContext database)
+    private readonly RegisterDbContext _database;
+    public OwnerRepository(RegisterDbContext database)
     {
         _database =  database;
     }
