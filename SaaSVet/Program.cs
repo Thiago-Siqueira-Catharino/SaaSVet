@@ -5,6 +5,7 @@ using SaaSVet.Contexts.Appoitment.Application.CreateAppointmentUseCase;
 using SaaSVet.Contexts.Appoitment.Application.ViewPetAppointmentsUseCase;
 using SaaSVet.Contexts.Appoitment.Domain.IRepositories;
 using SaaSVet.Contexts.Appoitment.Infrastructure.Repositories;
+using SaaSVet.Contexts.Register.Application;
 using SaaSVet.Contexts.Register.Application.DeletePetUseCase;
 using SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 using SaaSVet.Contexts.Register.Application.NewPetUseCase;
@@ -33,6 +34,7 @@ builder.Services.AddScoped<NewPetUseCase>();
 builder.Services.AddScoped<NewOwnerUseCase>();
 builder.Services.AddScoped<DeletePetUseCase>();
 builder.Services.AddScoped<ShowOwnedPetsUseCase>();
+builder.Services.AddScoped<ShowOwnersUseCase>();
 
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<CancelAppointmentUseCase>();
