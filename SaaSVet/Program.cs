@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SaaSVet.Contexts.Register.Application.DeletePetUseCase;
 using SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 using SaaSVet.Contexts.Register.Application.NewPetUseCase;
+using SaaSVet.Contexts.Register.Application.ShowOwnedPetsUseCase;
 using SaaSVet.Contexts.Register.Domain.IRepositories;
 using SaaSVet.Contexts.Register.Infrastructure.Persistance;
 using SaaSVet.Contexts.Register.Infrastructure.Repositories;
@@ -26,6 +27,7 @@ builder.Services.AddScoped<IPetOwnerRepository, OwnerRepository>();
 builder.Services.AddScoped<NewPetUseCase>();
 builder.Services.AddScoped<NewOwnerUseCase>();
 builder.Services.AddScoped<DeletePetUseCase>();
+builder.Services.AddScoped<ShowOwnedPetsUseCase>();
 
 var app = builder.Build();
 

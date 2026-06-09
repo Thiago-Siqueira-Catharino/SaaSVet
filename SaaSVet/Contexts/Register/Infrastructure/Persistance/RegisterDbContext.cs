@@ -16,7 +16,8 @@ public class RegisterDbContext : DbContext
     {
         modelBuilder.Entity<Pet>()
             .HasOne(p => p.owner)
-            .WithMany(o => o.pets);
+            .WithMany(o => o.pets)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<PetOwner>();
     }

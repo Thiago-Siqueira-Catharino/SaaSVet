@@ -1,4 +1,5 @@
-﻿using SaaSVet.Contexts.Register.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SaaSVet.Contexts.Register.Domain.Entities;
 using SaaSVet.Contexts.Register.Domain.IRepositories;
 using SaaSVet.Contexts.Register.Infrastructure.Persistance;
 
@@ -16,5 +17,10 @@ public class PetRepository : IPetRepository
     {
         await  _database.Pets.AddAsync(pet);
         await _database.SaveChangesAsync();
+    }
+
+    public async Task<List<Pet>> GetByOwnerIdAsync(int ownerId)
+    {
+        return await _database.Pets.Where(p => p.owner.id == ownerId).ToListAsync();
     }
 }

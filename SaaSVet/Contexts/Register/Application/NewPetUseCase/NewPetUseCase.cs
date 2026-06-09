@@ -21,9 +21,6 @@ public class NewPetUseCase
             throw new ArgumentException($"Owner with id {newPet.ownerId} does not exist");
         
         Pet petToAdd = new Pet(owner, newPet.petName);
-        owner.AddPet(petToAdd);
-        
         await _petRepository.AddAsync(petToAdd);
-        await _petOwnerRepository.SaveAsync(owner);
     }
 }
