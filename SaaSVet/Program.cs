@@ -41,7 +41,19 @@ builder.Services.AddScoped<CancelAppointmentUseCase>();
 builder.Services.AddScoped<CreateAppointmentUseCase>();
 builder.Services.AddScoped<ViewPetAppointmentsUseCase>();
 
+builder.Services.AddCors(options =>
+    {
+        options.AddDefaultPolicy((policy =>
+        {
+            policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+        }));
+    });
+
 var app = builder.Build();
+
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
