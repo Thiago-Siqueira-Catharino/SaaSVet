@@ -1,13 +1,13 @@
-﻿using SaaSVet.Contexts.Register.Domain.Entities;
+﻿using SaaSVet.Common.Persistance;
+using SaaSVet.Contexts.Register.Domain.Entities;
 using SaaSVet.Contexts.Register.Domain.IRepositories;
-using SaaSVet.Contexts.Register.Infrastructure.Persistance;
 
 namespace SaaSVet.Contexts.Register.Infrastructure.Repositories;
 
 public class OwnerRepository : IPetOwnerRepository
 {
-    private readonly RegisterDbContext _database;
-    public OwnerRepository(RegisterDbContext database)
+    private readonly VetDbCotnext _database;
+    public OwnerRepository(VetDbCotnext database)
     {
         _database =  database;
     }

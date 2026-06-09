@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SaaSVet.Common.Persistance;
 using SaaSVet.Contexts.Register.Domain.Entities;
 using SaaSVet.Contexts.Register.Domain.IRepositories;
-using SaaSVet.Contexts.Register.Infrastructure.Persistance;
+
 
 namespace SaaSVet.Contexts.Register.Infrastructure.Repositories;
 
 public class PetRepository : IPetRepository
 {
-    public readonly RegisterDbContext _database;
-    public PetRepository(RegisterDbContext database)
+    public readonly VetDbCotnext _database;
+    public PetRepository(VetDbCotnext database)
     {
         _database = database;
     }
