@@ -1,4 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using SaaSVet.Contexts.Appoitment.Application.CancelAppointmentUseCase;
+using SaaSVet.Contexts.Appoitment.Application.CreateAppointmentUseCase;
+using SaaSVet.Contexts.Appoitment.Application.ViewPetAppointmentsUseCase;
+using SaaSVet.Contexts.Appoitment.Domain.IRepositories;
+using SaaSVet.Contexts.Appoitment.Infrastructure.Persistance;
+using SaaSVet.Contexts.Appoitment.Infrastructure.Repositories;
 using SaaSVet.Contexts.Register.Application.DeletePetUseCase;
 using SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 using SaaSVet.Contexts.Register.Application.NewPetUseCase;
@@ -15,6 +21,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<RegisterDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+builder.Services.AddDbContext<AppointmentDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 builder.Services.AddControllers();
 
 // Add services to the container.
@@ -28,6 +37,11 @@ builder.Services.AddScoped<NewPetUseCase>();
 builder.Services.AddScoped<NewOwnerUseCase>();
 builder.Services.AddScoped<DeletePetUseCase>();
 builder.Services.AddScoped<ShowOwnedPetsUseCase>();
+
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<CancelAppointmentUseCase>();
+builder.Services.AddScoped<CreateAppointmentUseCase>();
+builder.Services.AddScoped<ViewPetAppointmentsUseCase>();
 
 var app = builder.Build();
 
