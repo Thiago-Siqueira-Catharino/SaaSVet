@@ -14,7 +14,7 @@ public class NewOwnerUseCase
 
     public async Task RunAsync(NewOwnerDto newOwnerDto)
     {
-        PetOwner newOwner = new PetOwner(newOwnerDto.id, newOwnerDto.name);
+        PetOwner newOwner = new PetOwner(newOwnerDto.name, newOwnerDto.Cpf);
         await _petOwnerRepository.AddAsync(newOwner);
     }
 }

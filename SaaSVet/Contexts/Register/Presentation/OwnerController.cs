@@ -5,10 +5,12 @@ namespace SaaSVet.Contexts.Register.Presentation;
 
 [ApiController]
 [Route("api/[controller]")]
-public class OwnerController (NewOwnerUseCase newOwnerUseCase) : ControllerBase
+public class OwnerController (
+    NewOwnerUseCase newOwnerUseCase
+    ) : ControllerBase
 {
-    [HttpPost("/add")]
-    public async Task<IActionResult> AddOwner(NewOwnerDto dto)
+    [HttpPost("add")]
+    public async Task<IActionResult> AddOwner([FromForm]NewOwnerDto dto)
     {
         try
         {

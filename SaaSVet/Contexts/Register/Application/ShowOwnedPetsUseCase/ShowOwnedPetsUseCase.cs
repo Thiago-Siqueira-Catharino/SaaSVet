@@ -14,12 +14,13 @@ public class ShowOwnedPetsUseCase
         _petOwnerRepository = petOwnerRepository;
     }
 
-    public async Task RunAsync(ShowOwnedPetsDto dto)
+    public async Task<List<Pet>> RunAsync(ShowOwnedPetsDto dto)
     {
-        PetOwner owner = await _petOwnerRepository.FindByIdAsync(dto.ownerId);
+        PetOwner owner = await _petOwnerRepository.FindByIdAsync(dto.OwnerId);
         if (owner == null) 
-            throw new ArgumentException($"Owner with id {dto.ownerId} does not exist");
+            throw new ArgumentException($"Owner with id {dto.OwnerId} does not exist");
         
-        List<Pet> pets = await _petRepository.GetByOwnerIdAsync(dto.ownerId);
+        List<Pet> pets = await _petRepository.GetByOwnerIdAsync(dto.OwnerId);
+        return pets;
     }
 }

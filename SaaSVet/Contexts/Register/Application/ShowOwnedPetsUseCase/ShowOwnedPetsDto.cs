@@ -1,6 +1,6 @@
 namespace SaaSVet.Contexts.Register.Application.ShowOwnedPetsUseCase;
 
-public interface ShowOwnedPetsDto
+public record ShowOwnedPetsDto
 {
-    public int ownerId { get; set; }
+    public int OwnerId { get; set; }
 }

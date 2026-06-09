@@ -29,8 +29,8 @@ public class AppointmentRepository : IAppointmentRepository
     {
         return await _database.Appointments.AnyAsync( a =>
                 a.PetId == petId &&
-                a.Date >= windowStart &&
-                a.Date <= windowEnd);
+                a.ScheduledFor >= windowStart &&
+                a.ScheduledFor <= windowEnd);
     }
 
     public async Task<Appointment> GetByIdAsync(int id)
@@ -42,7 +42,7 @@ public class AppointmentRepository : IAppointmentRepository
     {
         return await _database.Appointments.AnyAsync(p => 
             p.PetId == petId && 
-            p.Date >= DateTime.Now);
+            p.ScheduledFor >= DateTime.Now);
 
     }
 

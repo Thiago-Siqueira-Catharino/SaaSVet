@@ -1,17 +1,23 @@
-﻿namespace SaaSVet.Contexts.Register.Domain.Entities;
+﻿using SaaSVet.Common.Entities;
+using SaaSVet.Contexts.Register.Domain.ValueObjects;
 
-public class PetOwner
+namespace SaaSVet.Contexts.Register.Domain.Entities;
+
+public class PetOwner : EntityBase
 {
-    public int id { get; private set; }
     public string name { get; set; }
+    public Cpf Cpf { get; set; }
     public List<Pet> pets { get; set; }
 
     public PetOwner()
     { }
 
-    public PetOwner(int id, string name)
+    public PetOwner(string name, string cpf)
     {
-        this.id = id;
+        if (string.IsNullOrEmpty(name))
+            throw new ArgumentNullException("Name cannot be null or empty");
+        
+        this.Cpf = new Cpf(cpf);
         this.name = name;
         pets = [];
     }

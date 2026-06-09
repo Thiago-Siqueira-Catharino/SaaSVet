@@ -13,8 +13,8 @@ public class AppointmentController (
     ViewPetAppointmentsUseCase  petAppointmentUseCase
     ) : ControllerBase
 {
-    [HttpPost("/create")]
-    public async Task<IActionResult> CreateAppointmentUseCase(CreateAppointmentDto dto)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateAppointmentUseCase([FromForm]CreateAppointmentDto dto)
     {
         try
         {
@@ -28,12 +28,12 @@ public class AppointmentController (
         }
     }
 
-    [HttpPost("/cancel")]
-    public async Task<IActionResult> CancelAppointmentUseCase(CancelAppointmentDto dto)
+    [HttpPost("cancel/{AppointmentId}")]
+    public async Task<IActionResult> CancelAppointmentUseCase([FromForm]CancelAppointmentDto AppointmentId)
     {
         try
         {
-            await cancelAppointmentUseCase.RunAsync(dto);
+            await cancelAppointmentUseCase.RunAsync(AppointmentId);
             return Ok();
         }
         catch (Exception e)
@@ -43,13 +43,14 @@ public class AppointmentController (
         }
     }
 
-    [HttpGet("/get/petId={petId}")]
-    public async Task<IActionResult> GetByPetId(ViewPetAppointmentsDto dto)
+    [HttpGet("get/{petId}")]
+    public async Task<IActionResult> GetByPetId([FromRoute] int petId)
     {
         try
         {
+            var dto = new ViewPetAppointmentsDto{PetId = petId};
             List<Domain.Entities.Appointment> appointments = await petAppointmentUseCase.RunAsync(dto);
-            return Ok();
+            return Ok(appointments);
         }
         catch (Exception e)
         {

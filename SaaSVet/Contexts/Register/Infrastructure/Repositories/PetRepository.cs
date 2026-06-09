@@ -33,6 +33,9 @@ public class PetRepository : IPetRepository
 
     public async Task<List<Pet>> GetByOwnerIdAsync(int ownerId)
     {
-        return await _database.Pets.Where(p => p.owner.id == ownerId && p.IsDeleted == false).ToListAsync();
+        return await _database.Pets
+            .AsNoTracking()
+            .Where(p => p.owner.Id == ownerId && p.IsDeleted == false)
+            .ToListAsync();
     }
 }

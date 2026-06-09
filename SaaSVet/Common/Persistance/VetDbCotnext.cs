@@ -26,5 +26,12 @@ public class VetDbCotnext : DbContext
             .WithMany()
             .HasForeignKey(a => a.PetId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<PetOwner>()
+            .OwnsOne(o => o.Cpf, cpf =>
+            {
+                cpf.Property(c => c.Value).HasColumnName("cpf");
+                cpf.HasIndex(c => c.Value).IsUnique();
+            });
     }
 }

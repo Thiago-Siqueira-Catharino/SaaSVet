@@ -2,6 +2,7 @@
 using SaaSVet.Contexts.Register.Application.DeletePetUseCase;
 using SaaSVet.Contexts.Register.Application.NewOwnerUseCase;
 using SaaSVet.Contexts.Register.Application.NewPetUseCase;
+using SaaSVet.Contexts.Register.Application.ShowOwnedPetsUseCase;
 
 namespace SaaSVet.Contexts.Register.Presentation;
 
@@ -9,8 +10,8 @@ namespace SaaSVet.Contexts.Register.Presentation;
 [Route("api/[controller]")]
 public class PetController(
     NewPetUseCase newPetUseCase,
-    NewOwnerUseCase newOwnerUseCase,
-    DeletePetUseCase deletePetUseCase
+    DeletePetUseCase deletePetUseCase,
+    ShowOwnedPetsUseCase showOwnedPetsUseCase
     ) : ControllerBase
 {
     [HttpPost("pet/add")]
@@ -25,5 +26,19 @@ public class PetController(
     {
         await deletePetUseCase.RunAsync(pet);
         return Ok();
+    }
+
+    [HttpGet("pet/all/{OwnerId}")]
+    public async Task<IActionResult> ShowAllPets([FromRoute] ShowOwnedPetsDto dto)
+    {
+        try
+        {
+            return Ok(await showOwnedPetsUseCase.RunAsync(dto));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return BadRequest(e.Message);
+        }
     }
 }
